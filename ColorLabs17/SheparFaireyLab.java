@@ -1,8 +1,10 @@
+package ColorLabs17;
+
 
 /**
  * Write a description of class SheparFaireyLab here.
  * 
- * @author (your name) 
+ * @author (Joshua lee) 
  * @version (a version number or a date)
  */
 import java.awt.*;
