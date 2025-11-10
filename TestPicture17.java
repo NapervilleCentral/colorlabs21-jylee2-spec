@@ -1,12 +1,12 @@
-package ColorLabs17;
+ 
 
 
 /**
  * Kevin Hayes
  * Test Picture Classes
  *
- * @author (Kevin Hayes)
- * @version (10-19-2016)
+ * @author (Joshua Lee)
+ * @version (11-10-25)
  */
 import java.awt.*; // brings color class
 import java.util.*;
@@ -22,9 +22,9 @@ public class TestPicture17
   {
       //opens picture using a dialog box
       /**/
-     String fileName = FileChooser.pickAFile();
-     Picture pictObj = new Picture(fileName);
-     pictObj.explore();
+    // String fileName = FileChooser.pickAFile();
+    // Picture pictObj = new Picture(fileName);
+    // pictObj.explore();
 
      //opens a pictue using a path
      //Picture apic = new Picture("C:\\Users\\khayes\\Favorites\\Documents\APCS- Java\chap03\Curriclum 2013\Picture Color labs\images\\beach.jpg");
@@ -35,18 +35,23 @@ public class TestPicture17
      Picture ferris1 = new Picture("images/2000 ferris wheel2.jpg");
      Picture moto = new Picture("images/redMotorcycle.jpg");
      Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
+     Picture mark = new Picture("images/blue-mark.jpg");
+     mark.explore();
 
      //apic.explore();/explore displays the picture
-     ferris1.explore();
-     moto.explore();
+     //ferris1.explore();
+     //moto.explore();
      
      //makes an array of pixels
      Pixel[] pixels; // every picture must have these lines of code!
      //gets pixels from picture and assigns to pixels array
      pixels = ferris1.getPixels();
+     
+     Pixel[] Mpixels;
+     Mpixels = moto.getPixels();
     
      //how many pixels or how large array
-    System.out.println("This is a large array" + pixels.length  );
+    System.out.println("This is a large array" + pixels.length);
 
 
     /**/
@@ -64,14 +69,14 @@ public class TestPicture17
     
     Color newColor = new Color(255,99,71);
     spot.setColor(newColor); // make your own color
-    spot2.setColor(Color.blue);
+    //spot2.setColor(Color.blue);
     
     ferris1.explore();
     System.out.println(pixels[17].getColor());
     System.out.println(spot);
     for(int i = 0; i<10000; i++)
     {
-        Pixel yuck = ferris1.getPixel((int) Math.random()*500, (int)Math.random()*500 );
+        Pixel yuck = ferris1.getPixel((int) Math.random()*+600, (int)Math.random()*+600 );
         yuck.setColor(Color.green);
         
     }
@@ -82,13 +87,37 @@ public class TestPicture17
     pixels[500034].setColor(Color.blue);
 
     ferris1.explore();
-/*
+/**/
    // loop to access indexes of array or collection
 
     //for each loop spot  is a ?
-    for (Pixel spot : pixels)
-    System.out.println( spot );
-
+    int red;
+    for (Pixel spot1 : Mpixels)
+    {
+        //System.out.println(spot1);
+        red = spot1.getRed();
+        
+        red = (int)(red * 0.25); // reduces by 75%
+        
+        spot1.setRed(red); // results in cyan color picture
+    }
+    moto.explore();
+    for (Pixel spot1 : Mpixels)
+    {
+        int blue,green;
+        
+        blue = spot1.getBlue();
+        
+        green = spot1.getGreen();
+        
+        blue = (int)(blue * 0.3);
+        
+        green = (int)(green * 0.15);
+        
+        spot1.setBlue(blue);
+        spot1.setGreen(green);
+    }
+    moto.explore();
 
    
  /**/
@@ -137,7 +166,7 @@ final double  FACTOR = .5;
 
   /**/ 
     //write/save a picture as a file
-    ferris1.write("images/ferris11.jpg");
+   // ferris1.write("images/ferris11.jpg");
 
     /**/
   }//main
