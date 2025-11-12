@@ -13,12 +13,17 @@ public class ColorLab
     // instance variables - replace the example below with your own
     public static void main( String[] args)
     {
+        double redtolerance = 181; // change the values to the general values in picture
+        double greentolerance = 130;
+        double bluetolerance = 125;
         Picture mark1 = new Picture("images/blue-mark.jpg");
         Picture mark2 = new Picture("images/blue-mark.jpg");
         Picture mark3 = new Picture("images/blue-mark.jpg");
         Picture mark4 = new Picture("images/blue-mark.jpg");
         Picture mark5 = new Picture("images/blue-mark.jpg");
         Picture mark6 = new Picture("images/blue-mark.jpg");
+        Picture mark7 = new Picture("images/blue-mark.jpg");
+
         
         Pixel[] pixels;
         Pixel[] Mpixels1;
@@ -27,12 +32,16 @@ public class ColorLab
         Pixel[] Mpixels4;
         Pixel[] Mpixels5;
         Pixel[] Mpixels6;
+        Pixel[] Mpixels7;
+        
+        
         Mpixels1 = mark1.getPixels();
         Mpixels2 = mark2.getPixels();
         Mpixels3 = mark3.getPixels();
         Mpixels4 = mark4.getPixels();
         Mpixels5 = mark5.getPixels();
         Mpixels6 = mark6.getPixels();
+        Mpixels7 = mark7.getPixels();
         
         int red, green, blue, negate;
         for (Pixel change1 : Mpixels1)
@@ -72,8 +81,40 @@ public class ColorLab
         for (Pixel change5 : Mpixels5)
         {
             red = change5.getRed();// lighten the picture by reducing RGB color intensity
+            red = (int)(red * 1.9);
             blue = change5.getBlue();
+            blue = (int)(blue * 1.85);
             green = change5.getGreen();
+            green = (int)(green * 1.83);
+            change5.setRed(red);
+            change5.setBlue(blue);
+            change5.setGreen(green);
         }
+        mark5.explore();
+        for (Pixel change6 : Mpixels6)
+        {
+            blue = change6.getBlue();
+            red = change6.getRed();
+            green = change6.getGreen();
+            if(red > 61 && red < redtolerance && green > 80 && green < greentolerance && blue > 30 && blue < bluetolerance)
+            {
+                blue = (int)(blue * 2);
+                change6.setBlue(blue);
+            }
+        }
+        mark6.explore();
+        for (Pixel change7 : Mpixels7)
+        {
+            blue = change7.getBlue();
+            blue = 50;
+            change7.setBlue(blue);
+            red = change7.getRed();
+            red = 10;
+            change7.setRed(red);
+            green = change7.getGreen();
+            green = 40;
+            change7.setGreen(green);
+        }
+        mark7.explore();
     }
 }
