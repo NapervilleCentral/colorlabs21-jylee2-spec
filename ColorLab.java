@@ -44,6 +44,7 @@ public class ColorLab
         Mpixels7 = mark7.getPixels();
         
         int red, green, blue, negate;
+        int gray, Reda, Bluea, Greena;
         for (Pixel change1 : Mpixels1)
         {
             red = change1.getRed();
@@ -106,14 +107,14 @@ public class ColorLab
         for (Pixel change7 : Mpixels7)
         {
             blue = change7.getBlue();
-            blue = 50;
-            change7.setBlue(blue);
+            Bluea = blue;
             red = change7.getRed();
-            red = 10;
-            change7.setRed(red);
+            Reda = red;
             green = change7.getGreen();
-            green = 40;
-            change7.setGreen(green);
+            Greena = green;
+            gray = (int)(Reda + Bluea + Greena) / 3;
+            Color graycolor = new Color(gray,gray,gray);
+            change7.setColor(graycolor);
         }
         mark7.explore();
     }
