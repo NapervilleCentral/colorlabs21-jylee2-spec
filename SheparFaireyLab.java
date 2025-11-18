@@ -74,7 +74,7 @@ public class SheparFaireyLab
             {
                 Change1.setColor(Dark);
             }
-            if(red > 145 && red < 250 && green > 120 && green < 240 && blue > 70 && blue < 200) // change face to light blue
+            if(red > 192 && red < 256 && green > 192 && green < 256 && blue > 192 && blue < 256) // change face to light blue
             {
                 Change1.setColor(Light);
             }
