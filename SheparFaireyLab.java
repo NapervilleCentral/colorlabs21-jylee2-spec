@@ -29,12 +29,16 @@ public class SheparFaireyLab
          //relative path
          Picture apic = new Picture("images\\Josh.jpg");
          //change with selfie picture
-         Picture me = new Picture("images/Josh.jpg");
          Picture me1 = new Picture("images/Josh.jpg");
          Picture me2 = new Picture("images/Josh.jpg");
+         Picture me3 = new Picture("images/Josh.jpg");
          Pixel[] pixels;
          Pixel[] Mpixels1;
-         Mpixels1 = me.getPixels();
+         Pixel[] Mpixels2;
+         Pixel[] Mpixels3;
+         Mpixels1 = me1.getPixels();
+         Mpixels2 = me2.getPixels();
+         Mpixels3 = me3.getPixels();
          me1.explore();
          /**
           * method 1 change
@@ -81,23 +85,30 @@ public class SheparFaireyLab
             }
             
          }
-         me.explore();
+         me1.explore();
          /**
           * method 2 change
           * 
           */
-         for (Pixel Change2: Mpixles2)
+         for (Pixel Change2: Mpixels2)
           {
            
            red = Change2.getRed();
            blue = Change2.getBlue();
            green = Change2.getGreen();
            b = 0; // largest value in gray scale
-           s = 0; // smallest value in gray scale
+           s = 255; // smallest value in gray scale
+           
            gray = (red + blue + green) / 3;
+           if (gray < s)
+               s = gray;
+           if (gray > b)
+               b = gray;
+           
+           
            Color colorgray = new Color(gray,gray,gray);
-           Change2.getColor(colorgray);
-           interval = (b - s) / 4 // interval divided evenly by choice in color
+           Change2.setColor(colorgray);
+           interval = (b - s) / 4; // interval divided evenly by choice in color
            Lb = (int)(blue * 0.9);
            Lg = (int)(green * 0.85);
            Lr = (int)(red * 0.68);
@@ -110,23 +121,25 @@ public class SheparFaireyLab
            Color Dark = new Color(0,0,Db);
            Color PureR = new Color(RED,0,0);
            Color Owhite = new Color (Wr,Wg,Wb);
-           if (red >= s && red < interval && blue >= s && blue < interval && green >= s && green < interval) // off white filling
+           if (gray >= s && gray < s + interval && gray >= s && gray < s + interval && gray >= s && gray < s + interval) // off white filling
            {  
             Change2.setColor(Owhite);
            }
-           if (red >= (s * 2) && red < (interval*2) && blue >= (s * 2) && blue < (interval * 2) && green >= (s * 2) && green < (interval * 2)) // Pure Red filling
+           if (gray >= (s + interval) && gray < s + (interval*2) && gray >= (s + interval) && gray < s + (interval * 2) && gray >= (s + interval) && gray < 2 + (interval * 2)) // Pure Red filling
            {
             Change2.setColor(PureR);
            }
-           if (red >= (s * 3) && red < (interval * 3) && blue >= (s * 3) && blue < (itnerval * 3) && green >= (s * 3) && green < (interval * 3)) // Light Blue filling
+           if (gray >= s + (2 * interval) && gray < s + (3 * interval) && gray >=  s + (2 * interval) && gray < s + (3 * interval) && gray >=  s + (2 * interval) && gray < s + (3 * interval)) // Light Blue filling
            {
             Change2.setColor(Light);
            }
-           if (red >= (s * 4) && red < (interval * 4) && bluue >= (s * 4) && blue < (interval * 4) && green >= (s * 4) && green < (interval * 4)) // Dark Blue filling
+           if (gray >= s + (interval * 3) && gray <= b && gray >= s + (interval * 3) && gray <= b && gray >= s + (interval * 3) && gray <= b) // Dark Blue filling
            {
             Change2.setColor(Dark);
            }
-           int Lr, Lb, Lg; // light green
+        }
+           me2.explore();
+           // light green
            int Or, Ob, Og; // Intense orange
            int Pr, Pb, Pg; // Pastel
            int Yr, Yb, Yg; // Intense Yellow
@@ -136,15 +149,16 @@ public class SheparFaireyLab
              blue = Change3.getBlue();
              green = Change3.getGreen();
              gray = (red + blue + green) / 3;
-             b = 0;
-             s = 0;
-             Color colorgray = new Color(gray,gray,gray);
-             Change2.getColor(colorgray);
+             b = 215;
+             s = 13;
+             Color Cgray = new Color(gray,gray,gray);
+             Change3.setColor(Cgray);
              // get colors for intense orange, Light green, Pastel, And intense yellow
              // using method 2 as the perfered method of coloring
-             interval = (b - s) / 4 // interval divided evenly by choice in color
+             interval = (b - s) / 4; // interval divided evenly by choice in color
             }
-           }
+           
+        
            
            
          /**
