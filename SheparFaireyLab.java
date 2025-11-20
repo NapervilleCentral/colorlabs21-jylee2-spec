@@ -51,41 +51,32 @@ public class SheparFaireyLab
             red = Change1.getRed();
             blue = Change1.getBlue();
             green = Change1.getGreen();
-            Lb = (int)(blue * 0.9);
-            Lg = (int)(green * 0.85);
-            Lr = (int)(red * 0.68);
-            Db = (int)(blue * 0.545);
-            RED = (int)(red * 1);
-            Wr = (int)(red * 0.971);
-            Wg = (int)(green * 0.96);
-            Wb = (int)(blue * 0.973);
-            Color Light = new Color(Lr,Lg,Lb);
-            Color Dark = new Color(0,0,Db);
-            Color PureR = new Color(RED,0,0);
-            Color Owhite = new Color (Wr,Wg,Wb);
+           
+            
             gray = (int)(red + blue + green) / 3;
             Color graycolor = new Color (gray, gray, gray);
             Change1.setColor(graycolor);
             // gray scale the entire photo and then sort rgb value values in intervals of 64 (1-4) for what bucket gets which part of the photo
-            if (red > 0 && red < 64 && green > 0 && green < 64 && blue > 0 && blue < 64)
-            {
-                Change1.setColor(PureR); // Make blue shirt RED
-            }
-            if (red > 64 && red < 128 && green > 64 && green < 128 && blue > 64 && blue < 128) // Make hair and background off white
-            {
-                Change1.setColor(Owhite);
-            }
-            if (red > 128 && red < 192 && green > 128 && green < 192 && blue > 128 && blue < 192)// Change lighter background around head to dark blue
-            {
-                Change1.setColor(Dark);
-            }
-            if(red > 192 && red < 256 && green > 192 && green < 256 && blue > 192 && blue < 256) // change face to light blue
-            {
-                Change1.setColor(Light);
-            }
             
+            
+            /*
+            Color Light = new Color(Lr,Lg,Lb);
+            Color Dark = new Color(0,0,Db);
+            Color PureR = new Color(RED,0,0);
+            Color Owhite = new Color (Wr,Wg,Wb);
+            */
          }
-         me1.explore();
+         // set for loop to create shepard fairy, must pull from grayscale, not original photo
+         
+         
+         
+         
+         
+         
+         
+         
+         
+        me1.explore();
          /**
           * method 2 change
           * 
@@ -121,19 +112,19 @@ public class SheparFaireyLab
            Color Dark = new Color(0,0,Db);
            Color PureR = new Color(RED,0,0);
            Color Owhite = new Color (Wr,Wg,Wb);
-           if (gray >= s && gray < s + interval && gray >= s && gray < s + interval && gray >= s && gray < s + interval) // off white filling
+           if (red >= s && red < s + interval && green >= s && green < s + interval && blue >= s && blue < s + interval) // off white filling
            {  
             Change2.setColor(Owhite);
            }
-           if (gray >= (s + interval) && gray < s + (interval*2) && gray >= (s + interval) && gray < s + (interval * 2) && gray >= (s + interval) && gray < 2 + (interval * 2)) // Pure Red filling
+           if (red >= (s + interval) && red < s + (interval*2) && green >= (s + interval) && green < s + (interval * 2) && blue >= (s + interval) && blue < 2 + (interval * 2)) // Pure Red filling
            {
             Change2.setColor(PureR);
            }
-           if (gray >= s + (2 * interval) && gray < s + (3 * interval) && gray >=  s + (2 * interval) && gray < s + (3 * interval) && gray >=  s + (2 * interval) && gray < s + (3 * interval)) // Light Blue filling
+           if (red >= s + (2 * interval) && red < s + (3 * interval) && green >=  s + (2 * interval) && green < s + (3 * interval) && blue >=  s + (2 * interval) && blue < s + (3 * interval)) // Light Blue filling
            {
             Change2.setColor(Light);
            }
-           if (gray >= s + (interval * 3) && gray <= b && gray >= s + (interval * 3) && gray <= b && gray >= s + (interval * 3) && gray <= b) // Dark Blue filling
+           if (red >= s + (interval * 3) && red <= b && green >= s + (interval * 3) && green <= b && blue >= s + (interval * 3) && blue <= b) // Dark Blue filling
            {
             Change2.setColor(Dark);
            }
@@ -149,6 +140,7 @@ public class SheparFaireyLab
              blue = Change3.getBlue();
              green = Change3.getGreen();
              gray = (red + blue + green) / 3;
+             Color colorgray = new Color(gray,gray,gray);
              b = 0;
              s = 255;
              if (gray < s)
@@ -171,28 +163,28 @@ public class SheparFaireyLab
              Color Pastel = new Color(Pr,Pg,Pb);
              Color Iyellow = new Color(Yr,Yg,Yb);
              Color Orange = new Color (Lr,Lg,Lb);
-             Change3.setColor(Cgray);
+             Change3.setColor(colorgray);
              // get colors for intense orange, Light green, Pastel, And intense yellow
              // using method 2 as the perfered method of coloring
              interval = (b - s) / 4; // interval divided evenly by choice in color
-             if (gray >= s && gray < s + interval && gray >= s && gray < s + interval && gray >= s && gray < s + interval)
+             if (red >= s && red < s + interval && green >= s && green < s + interval && blue >= s && blue < s + interval)
              {
               Change3.setColor(Light);
              }
-             if (gray >= (s + interval) && gray < s + (interval*2) && gray >= (s + interval) && gray < s + (interval * 2) && gray >= (s + interval) && gray < 2 + (interval * 2))
+             if (red >= (s + interval) && red < s + (interval*2) && green >= (s + interval) && green < s + (interval * 2) && blue >= (s + interval) && blue < 2 + (interval * 2))
              {
               Change3.setColor(Pastel);
              }
-             if (gray >= s + (2 * interval) && gray < s + (3 * interval) && gray >=  s + (2 * interval) && gray < s + (3 * interval) && gray >=  s + (2 * interval) && gray < s + (3 * interval))
+             if (red >= s + (2 * interval) && red < s + (3 * interval) && green >=  s + (2 * interval) && green < s + (3 * interval) && blue >=  s + (2 * interval) && blue < s + (3 * interval))
              {
               Change3.setColor(Iyellow);
              }
-             if (gray >= s + (interval * 3) && gray <= b && gray >= s + (interval * 3) && gray <= b && gray >= s + (interval * 3) && gray <= b)
+             if (red >= s + (interval * 3) && red <= b && green >= s + (interval * 3) && green <= b && blue >= s + (interval * 3) && blue <= b)
              {
               Change3.setColor(Orange);
              }
             }
-            me3.explore();
+        me3.explore();
         
            
            
