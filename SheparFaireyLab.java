@@ -140,7 +140,7 @@ public class SheparFaireyLab
         }
            me2.explore();
            // light green
-           int Or, Ob, Og; // Intense orange
+           int Or, Ob, Og; // orange
            int Pr, Pb, Pg; // Pastel
            int Yr, Yb, Yg; // Intense Yellow
            for (Pixel Change3: Mpixels3)
@@ -149,15 +149,50 @@ public class SheparFaireyLab
              blue = Change3.getBlue();
              green = Change3.getGreen();
              gray = (red + blue + green) / 3;
-             b = 215;
-             s = 13;
-             Color Cgray = new Color(gray,gray,gray);
+             b = 0;
+             s = 255;
+             if (gray < s)
+               s = gray;
+             if (gray > b)
+               b = gray;
+             Or = (int)(red * 1);
+             Og = (int)(green * 0.647);
+             Ob = (int)(blue * 0);
+             Pr = (int)(red * 1);
+             Pg = (int)(green * 0.41);
+             Pb = (int)(blue * 0.38);
+             Yr = (int)(red * 1);
+             Yg = (int)(blue * 0.937);
+             Yb = (int)(green * 0.161);
+             Lb = (int)(blue * 0.9);
+             Lg = (int)(green * 0.85);
+             Lr = (int)(red * 0.68);
+             Color Light = new Color(Lr,Lg,Lb);
+             Color Pastel = new Color(Pr,Pg,Pb);
+             Color Iyellow = new Color(Yr,Yg,Yb);
+             Color Orange = new Color (Lr,Lg,Lb);
              Change3.setColor(Cgray);
              // get colors for intense orange, Light green, Pastel, And intense yellow
              // using method 2 as the perfered method of coloring
              interval = (b - s) / 4; // interval divided evenly by choice in color
+             if (gray >= s && gray < s + interval && gray >= s && gray < s + interval && gray >= s && gray < s + interval)
+             {
+              Change3.setColor(Light);
+             }
+             if (gray >= (s + interval) && gray < s + (interval*2) && gray >= (s + interval) && gray < s + (interval * 2) && gray >= (s + interval) && gray < 2 + (interval * 2))
+             {
+              Change3.setColor(Pastel);
+             }
+             if (gray >= s + (2 * interval) && gray < s + (3 * interval) && gray >=  s + (2 * interval) && gray < s + (3 * interval) && gray >=  s + (2 * interval) && gray < s + (3 * interval))
+             {
+              Change3.setColor(Iyellow);
+             }
+             if (gray >= s + (interval * 3) && gray <= b && gray >= s + (interval * 3) && gray <= b && gray >= s + (interval * 3) && gray <= b)
+             {
+              Change3.setColor(Orange);
+             }
             }
-           
+            me3.explore();
         
            
            
