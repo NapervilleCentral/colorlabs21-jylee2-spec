@@ -2,7 +2,7 @@
 
 
 /**
- * Write a description of class SheparFaireyLab here.
+ * change photo of me
  * 
  * @author (Joshua lee) 
  * @version (11/13/25)
