@@ -69,20 +69,20 @@ public class SheparFaireyLab
          for (Pixel Change1 : Mpixels1)
           {
            // gets gray scale values
-           red = Change1.getColor(graycolor);
+           red = Change1.getColor(graycolor); // not valid
            green = Change1.getColor(graycolor);
            blue = Change1.getColor(graycolor);
            // rgb values of color types,using pixel value from gray scale photo
-           Lr = (int)(red *);
-           Lb = (int)(blue *);
-           Lg = (int)(green *);
-           Dr = (int)(red *);
-           Dg = (int)(green *);
-           Db = (int)(blue *);
-           RED = (int)(red * 0.85)
-           Wr = (int)(red *);
-           Wb = (int)(blue *);
-           Wg = (int)(green *);
+           Lr = (int)(red * 1);
+           Lb = (int)(blue * 1);
+           Lg = (int)(green * 1);
+           Dr = (int)(red * 1);
+           Dg = (int)(green * 1);
+           Db = (int)(blue * 1);
+           RED = (int)(red * 0.85);
+           Wr = (int)(red * 1);
+           Wb = (int)(blue * 1);
+           Wg = (int)(green * 1);
            // set color below
 
            // check values with intervals of 64 into groups of 4 (0-64, 65-128, etc)
