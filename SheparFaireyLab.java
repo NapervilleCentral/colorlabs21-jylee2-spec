@@ -29,129 +29,144 @@ public class SheparFaireyLab
          //relative path
          Picture apic = new Picture("images\\Josh.jpg");
          //change with selfie picture
-         Picture me1 = new Picture("images/Josh.jpg");
-         Picture me2 = new Picture("images/Josh.jpg");
-         Picture me3 = new Picture("images/Josh.jpg");
-         Pixel[] pixels;
-         Pixel[] Mpixels1;
-         Pixel[] Mpixels2;
-         Pixel[] Mpixels3;
-         Mpixels1 = me1.getPixels();
-         Mpixels2 = me2.getPixels();
-         Mpixels3 = me3.getPixels();
-         me1.explore();
-         /**
-          * method 1 change
-          */
-         int b, s, interval;
-         int red, blue, green, gray;
-         int RED, Db,Lb,Lg,Lr, Wr, Wg, Wb; // balanced approach color buckets
-         for(Pixel ChangeG1: Mpixels1 )
-         {
-            red = ChangeG1.getRed();
-            blue = ChangeG1.getBlue();
-            green = ChangeG1.getGreen();
-           
-            
-            gray = (int)(red + blue + green) / 3;
-            Color graycolor = new Color (gray, gray, gray);
-            ChangeG1.setColor(graycolor);
-            // gray scale the entire photo and then sort rgb value values in intervals of 64 (1-4) for what bucket gets which part of the photo
-            
-            
-            /*
-            Color Light = new Color(Lr,Lg,Lb);
-            Color Dark = new Color(0,0,Db);
-            Color PureR = new Color(RED,0,0);
-            Color Owhite = new Color (Wr,Wg,Wb);
-            */
-         }
-         for (Pixel Change1 : Mpixels1)
-          {
-           // gets gray scale values
-           red = Change1.getColor(graycolor); // not valid
-           green = Change1.getColor(graycolor);
-           blue = Change1.getColor(graycolor);
-           // rgb values of color types,using pixel value from gray scale photo
-           Lr = (int)(red * 1);
-           Lb = (int)(blue * 1);
-           Lg = (int)(green * 1);
-           Dr = (int)(red * 1);
-           Dg = (int)(green * 1);
-           Db = (int)(blue * 1);
-           RED = (int)(red * 0.85);
-           Wr = (int)(red * 1);
-           Wb = (int)(blue * 1);
-           Wg = (int)(green * 1);
-           // set color below
+         import java.awt.*;
 
-           // check values with intervals of 64 into groups of 4 (0-64, 65-128, etc)
-          }
-         // set for loop to create shepard fairy, must pull from grayscale, not original photo
-         
-         
+public class SheparFaireyLab
+{
+    public static void main(String[] args)
+    {
+        Picture me1 = new Picture("images/Josh.jpg");
+        Picture me2 = new Picture("images/Josh.jpg");
+        Picture me3 = new Picture("images/Josh.jpg");
+
+        // ===== METHOD 1 (fixed intervals) =====
+        method1(me1);
         me1.explore();
-         /**
-          * method 2 change
-          * 
-          */
-         for (Pixel ChangeG2: Mpixels2)
-          {
-           red = Change2.getRed();
-           blue = Change2.getBlue();
-           green = Change2.getGreen();
-           gray = (red + blue + green) / 3;
-           Color colorgray = new Color(gray,gray,gray);
-           Change2.setColor(colorgray);
-           
-           /*
-           Color Light = new Color(Lr,Lg,Lb);
-           Color Dark = new Color(0,0,Db);
-           Color PureR = new Color(RED,0,0);
-           Color Owhite = new Color (Wr,Wg,Wb);
-           */  
+
+        // ===== METHOD 2 (dynamic intervals using s and b) =====
+        method2(me2);
+        me2.explore();
+
+        // ===== METHOD 3 (custom palette using same logic as method 2) =====
+        method3(me3);
+        me3.explore();
+    }
+
+    public static void method1(Picture pic)
+    {
+        Pixel[] pixels = pic.getPixels();
+
+        for (Pixel p : pixels)
+        {
+            int r = p.getRed();
+            int g = p.getGreen();
+            int b = p.getBlue();
+
+            int gray = (r + g + b) / 3;
+            p.setColor(new Color(gray, gray, gray));
         }
-        for (Pixel Change2: Mpixels2)
-         {
-           red = Change2.getColor(colorgray);
-           blue = Change2.getColor(colorgray);
-           green = Change2.getColor(colorgray);
-          // color values have already been set
 
-          // set b and s values for equation for interval
-          // interval is used to get range of largest rgb values and around equal filling
-         }
-           me2.explore();
-           // light green
-           int Or, Ob, Og; // orange
-           int Pr, Pb, Pg; // Pastel
-           int Yr, Yb, Yg; // Intense Yellow
-         for (Pixel ChangeG3: Mpixels3)
-          {
-           red = ChangeG3.getRed();
-           blue = ChangeG3.getBlue();
-           green = ChangeG3.getGreen();
-           gray = (red + blue + green) / 3;
-           Color colorgray = new Color(gray,gray,gray);
-           ChangeG3.setColor(colorgray);
-          }
-          for(Pixel Change3 : Mpixels3)
-           {
-            red = Change2.getColor(colorgray);
-            blue = Change2.getColor(colorgray);
-            green = Change2.getColor(colorgray);
-            // color values have already been set
+        for (Pixel p : pixels)
+        {
+            int gray = p.getRed(); // all channels same now
 
-            // set b and s values for equation for interval
-            // interval is used to get range of largest rgb values and around equal filling
-           }
-          me3.explore();
-        
-           
-           
-         /**
-          * custom color palette
-          */
+            // ----- Fill in your 4 colors here -----
+            Color color1 = new Color(0, 0, 120);      // dark blue
+            Color color2 = new Color(200, 0, 0);      // red
+            Color color3 = new Color(120, 160, 255);  // light blue
+            Color color4 = new Color(240, 240, 220);  // off white
+
+            if (gray < 64)
+                p.setColor(color1);
+            else if (gray < 128)
+                p.setColor(color2);
+            else if (gray < 192)
+                p.setColor(color3);
+            else
+                p.setColor(color4);
+        }
+    }
+
+    // -------------------------
+    // METHOD 2 – dynamic s and b
+    // -------------------------
+    public static void method2(Picture pic)
+    {
+        Pixel[] pixels = pic.getPixels();
+        int s = 255;
+        int b = 0;
+
+        // compute s and b
+        for (Pixel p : pixels)
+        {
+            int gray = (p.getRed() + p.getGreen() + p.getBlue()) / 3;
+            if (gray < s) s = gray;
+            if (gray > b) b = gray;
+        }
+
+        int interval = (b - s) / 4;
+
+        for (Pixel p : pixels)
+        {
+            int gray = (p.getRed() + p.getGreen() + p.getBlue()) / 3;
+
+            // ----- Fill in your 4 colors here -----
+            Color darkBlue   = new Color(0, 0, 120);
+            Color redColor   = new Color(200, 0, 0);
+            Color lightBlue  = new Color(120, 160, 255);
+            Color offWhite   = new Color(240, 240, 220);
+
+            if (gray < s + interval)
+                p.setColor(darkBlue);
+            else if (gray < s + 2*interval)
+                p.setColor(redColor);
+            else if (gray < s + 3*interval)
+                p.setColor(lightBlue);
+            else
+                p.setColor(offWhite);
+        }
+    }
+
+    // -------------------------
+    // METHOD 3 – custom palette
+    // -------------------------
+    public static void method3(Picture pic)
+    {
+        Pixel[] pixels = pic.getPixels();
+        int s = 255;
+        int b = 0;
+
+        // compute s and b again
+        for (Pixel p : pixels)
+        {
+            int gray = (p.getRed() + p.getGreen() + p.getBlue()) / 3;
+            if (gray < s) s = gray;
+            if (gray > b) b = gray;
+        }
+
+        int interval = (b - s) / 4;
+
+        for (Pixel p : pixels)
+        {
+            int gray = (p.getRed() + p.getGreen() + p.getBlue()) / 3;
+
+            // ----- Your custom colors here (choose anything!) -----
+            Color orange   = new Color(255, 140, 0);
+            Color yellow   = new Color(255, 255, 120);
+            Color green    = new Color(100, 255, 120);
+            Color pastel   = new Color(210, 200, 255);
+
+            if (gray < s + interval)
+                p.setColor(orange);
+            else if (gray < s + 2*interval)
+                p.setColor(yellow);
+            else if (gray < s + 3*interval)
+                p.setColor(green);
+            else
+                p.setColor(pastel);
+        }
+    }
+}
 
          
     }//main       
