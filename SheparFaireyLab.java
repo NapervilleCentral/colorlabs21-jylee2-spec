@@ -10,44 +10,26 @@
 import java.awt.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
-
-public class SheparFaireyLab
-{
-    /**
-     * main method, to test the picture
-     *  
-     */
-    public static void main(String[] args)
-    {
-        
-         //opens selfie picture 
-          /**/
-         //String fileName = FileChooser.pickAFile();
-         //Picture pictObj = new Picture(fileName);
-         //pictObj.explore();
          
-         //relative path
-         Picture apic = new Picture("images\\Josh.jpg");
-         //change with selfie picture
-         import java.awt.*;
 
 public class SheparFaireyLab
 {
     public static void main(String[] args)
     {
+        Picture apic = new Picture("images\\Josh.jpg");
         Picture me1 = new Picture("images/Josh.jpg");
         Picture me2 = new Picture("images/Josh.jpg");
         Picture me3 = new Picture("images/Josh.jpg");
 
-        // ===== METHOD 1 (fixed intervals) =====
+        //  METHOD 1 (fixed intervals) 
         method1(me1);
         me1.explore();
 
-        // ===== METHOD 2 (dynamic intervals using s and b) =====
+        //  METHOD 2 (dynamic intervals using s and b)
         method2(me2);
         me2.explore();
 
-        // ===== METHOD 3 (custom palette using same logic as method 2) =====
+        //  METHOD 3 (custom palette using same logic as method 2)
         method3(me3);
         me3.explore();
     }
@@ -93,15 +75,15 @@ public class SheparFaireyLab
     public static void method2(Picture pic)
     {
         Pixel[] pixels = pic.getPixels();
-        int s = 255;
-        int b = 0;
+        int s = 255; // max rgb value
+        int b = 0; // lowest rgb value
 
         // compute s and b
         for (Pixel p : pixels)
         {
             int gray = (p.getRed() + p.getGreen() + p.getBlue()) / 3;
-            if (gray < s) s = gray;
-            if (gray > b) b = gray;
+            if (gray < s) s = gray; // sets lowest comparing with gray scale 
+            if (gray > b) b = gray; // sets highest comparing to gray scale
         }
 
         int interval = (b - s) / 4;
@@ -110,13 +92,12 @@ public class SheparFaireyLab
         {
             int gray = (p.getRed() + p.getGreen() + p.getBlue()) / 3;
 
-            // ----- Fill in your 4 colors here -----
             Color darkBlue   = new Color(0, 0, 120);
             Color redColor   = new Color(200, 0, 0);
             Color lightBlue  = new Color(120, 160, 255);
             Color offWhite   = new Color(240, 240, 220);
 
-            if (gray < s + interval)
+            if (gray < s + interval) // intervals in which bucket colors pixels in grayscale
                 p.setColor(darkBlue);
             else if (gray < s + 2*interval)
                 p.setColor(redColor);
@@ -150,10 +131,9 @@ public class SheparFaireyLab
         {
             int gray = (p.getRed() + p.getGreen() + p.getBlue()) / 3;
 
-            // ----- Your custom colors here (choose anything!) -----
             Color orange   = new Color(255, 140, 0);
             Color yellow   = new Color(255, 255, 120);
-            Color green    = new Color(100, 255, 120);
+            Color blue    = new Color(173, 216, 230);
             Color pastel   = new Color(210, 200, 255);
 
             if (gray < s + interval)
@@ -161,7 +141,7 @@ public class SheparFaireyLab
             else if (gray < s + 2*interval)
                 p.setColor(yellow);
             else if (gray < s + 3*interval)
-                p.setColor(green);
+                p.setColor(blue);
             else
                 p.setColor(pastel);
         }
@@ -169,5 +149,5 @@ public class SheparFaireyLab
 }
 
          
-    }//main       
-}//class
+    //main       
+//class

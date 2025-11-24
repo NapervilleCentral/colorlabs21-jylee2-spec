@@ -2,5 +2,10 @@
 comment0.target=SheparFaireyLab
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-comment1.text=\r\n\ main\ method,\ to\ test\ the\ picture\r\n\ \ \r\n
-numComments=2
+comment2.params=pic
+comment2.target=void\ method1(Picture)
+comment3.params=pic
+comment3.target=void\ method2(Picture)
+comment4.params=pic
+comment4.target=void\ method3(Picture)
+numComments=5
