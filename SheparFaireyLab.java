@@ -9,7 +9,7 @@
  */
 import java.awt.*;
 import java.util.*;
-import java.util.List; // resolves problem with java.awt.List and java.util.List
+import java.util.List;
          
 
 public class SheparFaireyLab
@@ -69,9 +69,9 @@ public class SheparFaireyLab
         }
     }
 
-    // -------------------------
+    
     // METHOD 2 – dynamic s and b
-    // -------------------------
+    
     public static void method2(Picture pic)
     {
         Pixel[] pixels = pic.getPixels();
@@ -108,9 +108,9 @@ public class SheparFaireyLab
         }
     }
 
-    // -------------------------
+    
     // METHOD 3 – custom palette
-    // -------------------------
+    
     public static void method3(Picture pic)
     {
         Pixel[] pixels = pic.getPixels();
