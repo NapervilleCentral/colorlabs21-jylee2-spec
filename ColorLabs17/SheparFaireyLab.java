@@ -24,16 +24,17 @@ public class SheparFaireyLab
         //  METHOD 1 (fixed intervals) 
         method1(me1);
         me1.explore();
-
+        me1.write("images/Shepard1.jpg");
         //  METHOD 2 (dynamic intervals using s and b)
         method2(me2);
         me2.explore();
-
+        me2.write("images/Shepard2.jpg");
         //  METHOD 3 (custom palette using same logic as method 2)
         method3(me3);
         me3.explore();
+        me3.write("images/shepard3.jpg");
     }
-
+    
     public static void method1(Picture pic)
     {
         Pixel[] pixels = pic.getPixels();

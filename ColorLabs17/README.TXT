@@ -13,6 +13,6 @@ USER INSTRUCTIONS:
 
 2) Titus - Critque : Yellow covers the entire screen, possible issue with interval value?
 
-3) Shivome - Critque : Everything looks fine, but color choices don't look right
+3) Shivome - Critque : Colors seemed to be placed ranodmly (double check s and b)
 
 4) Anush - Critque : seemed fine, nothing to change
