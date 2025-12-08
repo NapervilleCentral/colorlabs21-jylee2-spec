@@ -35,7 +35,7 @@ public class SheparFaireyLab
         me3.explore();
         me3.write("images/Shepard3.jpg");
 
-        // METHOD 4 – Fix green too large (Imaan)
+        // METHOD 4 – Fix green covers hair (Imaan)
         method4(me4);
         me4.explore();
         me4.write("images/Shepard4.jpg");
@@ -45,7 +45,7 @@ public class SheparFaireyLab
         me5.explore();
         me5.write("images/Shepard5.jpg");
 
-        // METHOD 6 – Fix random color distribution (Shivome)
+        // METHOD 6 – Fix light blue color (Shivome)
         method6(me6);
         me6.explore();
         me6.write("images/Shepard6.jpg");

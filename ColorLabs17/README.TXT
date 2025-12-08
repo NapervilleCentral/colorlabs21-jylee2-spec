@@ -9,10 +9,10 @@ Shepard Fairy lab:
 Get critique from other students on photo:
 Joshua Lee:
 USER INSTRUCTIONS:
-1) Imaan - Critique : Green in photo fills the entire screen, change green interval to take less space
+1) Imaan - Critique : Green in photo fills hair partially, change green interval to take less space (replace green, not good color)
 
 2) Titus - Critque : Yellow covers the entire screen, possible issue with interval value?
 
-3) Shivome - Critque : Colors seemed to be placed ranodmly (double check s and b)
+3) Shivome - Critque : Blue is too light for what was aimed for (change RGB values for a darker blue)
 
 4) Anush - Critque : seemed fine, nothing to change
