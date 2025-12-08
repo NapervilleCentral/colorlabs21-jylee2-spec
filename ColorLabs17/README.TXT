@@ -16,3 +16,5 @@ USER INSTRUCTIONS:
 3) Shivome - Critque : Blue is too light for what was aimed for (change RGB values for a darker blue)
 
 4) Anush - Critque : seemed fine, nothing to change
+
+fairys 4-6 are the changes made before the final image, in order from crtiques 1-3
