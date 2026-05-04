@@ -1,6 +1,17 @@
+/**
+ * An example of a method - replace this comment with your own
+ *
+ * @param  y  a sample parameter for a method
+ * @return    the sum of x and y
+ */
+public int sampleMethod(int y)
+{
+// put your code here
+return y;
+}
 
 /**
- * Write a description of class ColorLab here.
+* Write a description of class ColorLab here.
  *
  * @author (your name)
  * @version (a version number or a date)
@@ -24,7 +35,6 @@ public class ColorLab
         Picture mark6 = new Picture("images/blue-mark.jpg");
         Picture mark7 = new Picture("images/blue-mark.jpg");
 
-        
         Pixel[] pixels;
         Pixel[] Mpixels1;
         Pixel[] Mpixels2;
@@ -33,8 +43,7 @@ public class ColorLab
         Pixel[] Mpixels5;
         Pixel[] Mpixels6;
         Pixel[] Mpixels7;
-        
-        
+
         Mpixels1 = mark1.getPixels();
         Mpixels2 = mark2.getPixels();
         Mpixels3 = mark3.getPixels();
@@ -42,7 +51,7 @@ public class ColorLab
         Mpixels5 = mark5.getPixels();
         Mpixels6 = mark6.getPixels();
         Mpixels7 = mark7.getPixels();
-        
+
         int red, green, blue, negate;
         int gray, Reda, Bluea, Greena;
         for (Pixel change1 : Mpixels1)
@@ -54,9 +63,9 @@ public class ColorLab
         mark1.explore();
         for (Pixel change2 : Mpixels2)
         {
-                green = change2.getGreen();
-                green = (int)(green * 1.5);
-                change2.setGreen(green);
+            green = change2.getGreen();
+            green = (int)(green * 1.5);
+            change2.setGreen(green);
         }
         mark2.explore();
         for (Pixel change3 : Mpixels3)

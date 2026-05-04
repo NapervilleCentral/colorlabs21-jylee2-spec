@@ -27,23 +27,24 @@ public class mirrorTemple
     /**
      * Constructor for objects of class Mirror_Temple
      */
-    public static void mirrorTemple(Picture Temple)
+    public static void mirrorTemple(Picture temple)
     {
-        // initialise instance variables
-        int width = Temple.getWidth();
-        int height = Temple.getHeight();
-        Picture leftPixel = null;
-        Picture rightPixel = null;
+        int width = temple.getWidth();
+        int height = temple.getHeight();
     
-        for (int y = 0; y < Temple.getHeight(); y++) 
+        Pixel leftPixel;
+        Pixel rightPixel; // getting error for pixel at home
+        // possible due to library not being implemented, but cant find the option
+    
+        for (int y = 0; y < height; y++) 
         {
-            // Iterate only through the left half of the width
             for (int x = 0; x < width / 2; x++) 
             {
-                leftPixel = Temple.getPixel(x,y);
-                rightPixel = Temple.getPixel(width - 1 - x, y);
-                rightPixel.getColor(leftPixel.setColor());
-            }
+                leftPixel = temple.getPixel(x, y);
+                rightPixel = temple.getPixel(width - 1 - x, y);
+    
+                rightPixel.setColor(leftPixel.getColor());
             }
         }
+    }
     }
