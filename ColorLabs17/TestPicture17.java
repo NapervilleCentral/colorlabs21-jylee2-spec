@@ -36,7 +36,9 @@ public class TestPicture17
      Picture moto = new Picture("images/redMotorcycle.jpg");
      Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
      Picture mark = new Picture("images/blue-mark.jpg");
+     Picture Bob = new Picture("images/Bob.jpg");
      mark.explore();
+     Bob.explore();
 
      //apic.explore();/explore displays the picture
      //ferris1.explore();

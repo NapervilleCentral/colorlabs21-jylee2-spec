@@ -9,6 +9,7 @@
 import java.awt.*; // brings color class
 import java.util.*;
 import java.util.List;
+
 public class mirrorTemple
 {
     public static void main(String [] args)
@@ -26,11 +27,23 @@ public class mirrorTemple
     /**
      * Constructor for objects of class Mirror_Temple
      */
-    public void mirrorTemple(int [] [] pixels)
+    public static void mirrorTemple(Picture Temple)
     {
         // initialise instance variables
-        int height = pixels.length;
-        int width = pixels[0].length;
-        
+        int width = Temple.getWidth();
+        int height = Temple.getHeight();
+        Picture leftPixel = null;
+        Picture rightPixel = null;
+    
+        for (int y = 0; y < Temple.getHeight(); y++) 
+        {
+            // Iterate only through the left half of the width
+            for (int x = 0; x < width / 2; x++) 
+            {
+                leftPixel = Temple.getPixel(x,y);
+                rightPixel = Temple.getPixel(width - 1 - x, y);
+                rightPixel.getColor(leftPixel.setColor());
+            }
+            }
+        }
     }
-}
