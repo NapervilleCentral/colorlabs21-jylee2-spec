@@ -2,7 +2,7 @@
 comment0.target=mirrorTemple
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-comment2.params=pixels
-comment2.target=void\ mirrorTemple(int[][])
+comment2.params=temple
+comment2.target=void\ mirrorTemple(Picture)
 comment2.text=\r\n\ Constructor\ for\ objects\ of\ class\ Mirror_Temple\r\n
 numComments=3

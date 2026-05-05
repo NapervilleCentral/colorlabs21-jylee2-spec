@@ -14,13 +14,13 @@ public class mirrorTemple
 {
     public static void main(String [] args)
     {
-        Picture Temple = new Picture("images/temple.jpg");
+        Picture Temple = new Picture("images\\Temple.jpg");
         Pixel [] pixels;
         Pixel [] Tpixels;
         
         Tpixels = Temple.getPixels();
         
-        Temple.explore();
+        mirrorTemple(Temple);
         // Coordinates (0 , 0) starts at the top left corner 
     
     }
@@ -32,11 +32,11 @@ public class mirrorTemple
         int width = temple.getWidth();
         int height = temple.getHeight();
     
-        Pixel leftPixel;
-        Pixel rightPixel; // getting error for pixel at home
+        Pixel leftPixel = null;
+        Pixel rightPixel = null; // getting error for pixel at home
         // possible due to library not being implemented, but cant find the option
     
-        for (int y = 0; y < height; y++) 
+        for (int y = 0; y < 100; y++) 
         {
             for (int x = 0; x < width / 2; x++) 
             {
@@ -46,5 +46,6 @@ public class mirrorTemple
                 rightPixel.setColor(leftPixel.getColor());
             }
         }
+        temple.explore();
     }
     }

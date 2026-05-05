@@ -37,6 +37,7 @@ public class TestPicture17
      Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
      Picture mark = new Picture("images/blue-mark.jpg");
      Picture Bob = new Picture("images/Bob.jpg");
+
      mark.explore();
      Bob.explore();
 
@@ -50,6 +51,7 @@ public class TestPicture17
      pixels = ferris1.getPixels();
      
      Pixel[] Mpixels;
+     //*
      Mpixels = moto.getPixels();
     
      //how many pixels or how large array
@@ -119,7 +121,7 @@ public class TestPicture17
         spot1.setBlue(blue);
         spot1.setGreen(green);
     }
-    moto.explore();
+    moto.explore(); 
 
    
  /**/
