@@ -15,7 +15,9 @@ public class Six_Versions
      * Create 6 versions of 1 photo
      *  Gray scale
      *  Negation/Negative photo
-     *  
+     *  reflection on Y-axis
+     *  Sepia
+     *  down scaling image
      */
      
     public static void main (String [] args)
@@ -49,9 +51,10 @@ public class Six_Versions
      Version3.write("images/Version3.jpg");
 
      method3(Version4);
-     //Version4.explore();
-     //Version5.explore();
-     //Version6.explore();
+     
+     method4(Version5);
+     
+     method5(Version6 , 6 , 200 , 200);
 
     
     }
@@ -111,8 +114,8 @@ public class Six_Versions
         int height = Version4.getHeight();
     
         Pixel leftPixel = null;
-        Pixel rightPixel = null; // getting error for pixel at home
-        // possible due to library not being implemented, but cant find the option
+        Pixel rightPixel = null;
+        
     
         for (int y = 0; y < height; y++) 
         {
@@ -127,10 +130,12 @@ public class Six_Versions
         Version4.explore();
     }
     
-    public static void mehtod4 (Picture Version5)
+    public static void method4 (Picture Version5)
     {
         Pixel[] pixels = Version5.getPixels();
         
+        // sets image to gray scale in prep for color change
+        /**
         for (Pixel p: pixels)
         {
             int r = p.getRed();
@@ -140,10 +145,39 @@ public class Six_Versions
             int gray = (r + g + b) / 3;
             p.setColor(new Color(gray, gray, gray));
         }
-        
+        **/
+        // changes color of gray image to sepia, percentage based rgb values
         for (Pixel p: pixels)
         {
+            int r = p.getRed();
+            int b = p.getBlue();
+            int g = p.getGreen();
             
+            r = (int) (r * 0.83);
+            b = (int) (b * 0.71);
+            g = (int) (g * 0.58);
+            
+            p.setRed(r);
+            p.setBlue(b);
+            p.setGreen(g);
+            
+        }
+        Version5.explore();
+    }
+    
+    public static void method5 (Picture Version6, int times , int Iwidth, int Iheight)
+    {
+        // recursivley repeat the method until you have 6 images in total
+        if ( times == 6)
+        {
+            Version6.explore();
+            method5(Version6 , times - 1, Iwidth/2, Iheight/2);
+        }
+        
+        if (times > 0 && times < 6)
+        {
+            
+            method5(Version6 , times - 1, Iwidth/2, Iheight/2);
         }
     }
 }
