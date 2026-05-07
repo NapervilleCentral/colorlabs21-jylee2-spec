@@ -55,6 +55,7 @@ public class Six_Versions
      method4(Version5);
      
      method5(Version6 , 6 , 200 , 200);
+     Version6.explore();
 
     
     }
@@ -170,14 +171,17 @@ public class Six_Versions
         // recursivley repeat the method until you have 6 images in total
         if ( times == 6)
         {
-            Version6.explore();
-            method5(Version6 , times - 1, Iwidth/2, Iheight/2);
+            method5(Version6 , times - 1 , (int) (Iwidth/2), (int) (Iheight/2));
         }
         
         if (times > 0 && times < 6)
         {
+            Picture smol = Picture.getImage(); // fix at home, not enough time right now
+            
             
             method5(Version6 , times - 1, Iwidth/2, Iheight/2);
         }
+        
+        // do not call more than once, does not stack image, creates a new one every time
     }
 }
