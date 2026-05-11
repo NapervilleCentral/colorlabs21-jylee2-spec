@@ -154,9 +154,9 @@ public class Six_Versions
             int b = p.getBlue();
             int g = p.getGreen();
             
-            r = (int) (r * 0.83);
-            b = (int) (b * 0.71);
-            g = (int) (g * 0.58);
+            r = (int) (r * 0.72);
+            b = (int) (b * 0.54);
+            g = (int) (g * 0.66);
             
             p.setRed(r);
             p.setBlue(b);
@@ -176,7 +176,7 @@ public class Six_Versions
         
         if (times > 0 && times < 6)
         {
-            Picture smol = Picture.getImage(); // fix at home, not enough time right now
+            //Picture small6 = new Picture ("images/Bob.jpg").getImage();
             
             
             method5(Version6 , times - 1, Iwidth/2, Iheight/2);
