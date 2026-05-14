@@ -166,22 +166,34 @@ public class Six_Versions
         Version5.explore();
     }
     
-    public static void method5 (Picture Version6, int times , int Iwidth, int Iheight)
+    public static void method5(Picture pic, int times)
     {
-        // recursivley repeat the method until you have 6 images in total
-        if ( times == 6)
+        // base case
+        if (times <= 0)
+            return;
+    
+        int width = pic.getWidth();
+        int height = pic.getHeight();
+    
+        // create a copy to read from
+        Picture copy = new Picture("images/Bob.jpg");
+    
+        // scale factor (each time half size)
+        double scale = Math.pow(0.5, 6 - times);
+    
+        for (int y = 0; y < height * scale; y++)
         {
-            method5(Version6 , times - 1 , (int) (Iwidth/2), (int) (Iheight/2));
+            for (int x = 0; x < width * scale; x++)
+            {
+                Pixel target = pic.getPixel(x, y);
+    
+                Pixel source = copy.getPixel((int)(x / scale), (int)(y / scale));
+    
+                target.setColor(source.getColor());
+            }
         }
-        
-        if (times > 0 && times < 6)
-        {
-            //Picture small6 = new Picture ("images/Bob.jpg").getImage();
-            
-            
-            method5(Version6 , times - 1, Iwidth/2, Iheight/2);
-        }
-        
-        // do not call more than once, does not stack image, creates a new one every time
+    
+        // recursive call
+        method5(pic, times - 1);
     }
 }
