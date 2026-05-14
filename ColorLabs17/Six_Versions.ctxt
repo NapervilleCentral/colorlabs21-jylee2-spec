@@ -2,7 +2,7 @@
 comment0.target=Six_Versions
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-comment1.text=\r\n\ Create\ 6\ versions\ of\ 1\ photo\r\n\ \ Gray\ scale\r\n\ \ Negation/Negative\ photo\r\n\ \ reflection\ on\ Y-axis\r\n\ \ Sepia\r\n\ \ down\ scaling\ image\r\n
+comment1.text=\n\ Create\ 6\ versions\ of\ 1\ photo\n\ \ Gray\ scale\n\ \ Negation/Negative\ photo\n\ \ reflection\ on\ Y-axis\n\ \ Sepia\n\ \ down\ scaling\ image\n
 comment2.params=Version2
 comment2.target=void\ method1(Picture)
 comment3.params=Version3
