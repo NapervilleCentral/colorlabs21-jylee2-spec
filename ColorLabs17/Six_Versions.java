@@ -22,42 +22,47 @@ public class Six_Versions
      
     public static void main (String [] args)
     {
-     // Original
-     Picture Version1 = new Picture ("images/Bob.jpg");
-     
-     // Grayscale
-     Picture Version2 = new Picture ("images/Bob.jpg");
-     
-     // Negation
-     Picture Version3 = new Picture ("images/Bob.jpg");
-     
-     // Reflect on Y-axis
-     Picture Version4 = new Picture ("images/Bob.jpg");
-     
-     // Sepia
-     Picture Version5 = new Picture ("images/Bob.jpg");
-     
-     // Scaling down into top left corner (recursivly done)
-     Picture Version6 = new Picture ("images/Bob.jpg");
-     
-     Version1.explore();
-     
-     method1(Version2);
-     Version2.explore();
-     Version2.write("images/Version2.jpg");
-     
-     method2(Version3);
-     Version3.explore();
-     Version3.write("images/Version3.jpg");
-
-     method3(Version4);
-     
-     method4(Version5);
-     
-     method5(Version6 , 6 , 200 , 200);
-     Version6.explore();
-
+         // Original
+         Picture Version1 = new Picture ("images/Bob.jpg");
+         
+         // Grayscale
+         Picture Version2 = new Picture ("images/Bob.jpg");
+         
+         // Negation
+         Picture Version3 = new Picture ("images/Bob.jpg");
+         
+         // Reflect on Y-axis
+         Picture Version4 = new Picture ("images/Bob.jpg");
+         
+         // Sepia
+         Picture Version5 = new Picture ("images/Bob.jpg");
+         
+         // Scaling down into top left corner (recursivly done)
+         Picture Version6 = new Picture ("images/Bob.jpg");
+         
+         Version1.explore();
+         Version1.write("images/Version1.jpg");
+         
+         method1(Version2);
+         Version2.explore();
+         Version2.write("images/Version2.jpg");
+         
+         method2(Version3);
+         Version3.explore();
+         Version3.write("images/Version3.jpg");
     
+         method3(Version4);
+         Version4.write("images/Version4.jpg");
+         
+         method4(Version5);
+         Version5.write("images/Version5.jpg");
+         
+         method5(Version6 , 6);
+         Version6.explore();
+         Version6.write("images/Version6.jpg");
+    
+         CopytoCanvas(Version1 , Version1 , 0 , 0);
+         CopytoCanvas(Version1 , Version1 , 300 , 0);
     }
     
     public static void method1 (Picture Version2)
@@ -136,7 +141,7 @@ public class Six_Versions
         Pixel[] pixels = Version5.getPixels();
         
         // sets image to gray scale in prep for color change
-        /**
+        
         for (Pixel p: pixels)
         {
             int r = p.getRed();
@@ -146,7 +151,7 @@ public class Six_Versions
             int gray = (r + g + b) / 3;
             p.setColor(new Color(gray, gray, gray));
         }
-        **/
+        
         // changes color of gray image to sepia, percentage based rgb values
         for (Pixel p: pixels)
         {
@@ -154,9 +159,9 @@ public class Six_Versions
             int b = p.getBlue();
             int g = p.getGreen();
             
-            r = (int) (r * 0.72);
-            b = (int) (b * 0.54);
-            g = (int) (g * 0.66);
+            r = (int) (r * 0.61);
+            b = (int) (b * 0.11);
+            g = (int) (g * 0.35);
             
             p.setRed(r);
             p.setBlue(b);
@@ -195,5 +200,20 @@ public class Six_Versions
     
         // recursive call
         method5(pic, times - 1);
+    }
+    
+    public static void CopytoCanvas( Picture pic , Picture target, int Xpos , int Ypos)
+    {
+        Pixel sourcePix = null;
+        Pixel targetPix = null;
+        
+       
+        targetPix = target.getPixel(Xpos , Ypos);
+        sourcePix = pic.getPixel(Xpos , Ypos);
+        targetPix.setColor(sourcePix.getColor());
+        
+        
+            
+        target.explore();
     }
 }
