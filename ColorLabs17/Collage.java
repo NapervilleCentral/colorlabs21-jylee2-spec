@@ -8,7 +8,7 @@ import java.awt.*; // brings color class
 import java.util.*;
 import java.util.List;
 
-public class Six_Versions
+public class Collage
 {
     /**
      * Create 6 versions of 1 photo
@@ -22,7 +22,7 @@ public class Six_Versions
     public static void main (String [] args)
     {
         // Original
-        Picture canvas = new Picture (1200, 1800);
+        Picture canvas = new Picture (1488, 1001); //1487
         
         Picture Version1 = new Picture ("images/Bob.jpg");
 
@@ -63,11 +63,13 @@ public class Six_Versions
         Version6.write("images/Version6.jpg");
 
         CopytoCanvas(Version1 , canvas , 0 , 0);
-        CopytoCanvas(Version2 , canvas , 399 , 0);
-        CopytoCanvas(Version3 , canvas , 0 , 0);
-        CopytoCanvas(Version4 , canvas , 0 , 0);
-        CopytoCanvas(Version5 , canvas , 0 , 0);
-        CopytoCanvas(Version6 , canvas , 0 , 0);
+        CopytoCanvas(Version2 , canvas , 499 , 0);
+        CopytoCanvas(Version3 , canvas , 988 , 0);
+        CopytoCanvas(Version4 , canvas , 0 , 499);
+        CopytoCanvas(Version5 , canvas , 499 , 499);
+        CopytoCanvas(Version6 , canvas , 988 , 499);
+        canvas.explore();
+        canvas.write("images/Collage.jpg");
     }
 
     public static void method1 (Picture Version2)
@@ -161,9 +163,9 @@ public class Six_Versions
             int b = p.getBlue();
             int g = p.getGreen();
 
-            r = (int) (r * 0.61);
-            b = (int) (b * 0.11);
-            g = (int) (g * 0.35);
+            r = (int) (r * 0.7);
+            b = (int) (b * 0.4);
+            g = (int) (g * 0.6);
 
             p.setRed(r);
             p.setBlue(b);
@@ -223,5 +225,7 @@ public class Six_Versions
                 targetPix.setColor(sourcePix.getColor());
             }
         }
+        
+        
     }
 }
