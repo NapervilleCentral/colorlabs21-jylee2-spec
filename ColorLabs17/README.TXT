@@ -7,6 +7,8 @@ Poster Project Final (Description on manipulated collage photos):
 
 5 / 15 / 26 
 
+(Original not included, so 5 responses)
+
 1) - Referenced the color labs to recreate the gray scale version of the original photo
 
 2) - reused gray scale to then make the photo negative by changing the RGB percent's, not as effective when done with the original photo when I experimented with it
